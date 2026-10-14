@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Monthsarry Langlang</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe4ee;--bg2:#ffc2d9;--card:rgba(255,255,255,.75);--ink:#7a2149;--accent:#ff6fa5;--accent2:#e0457f;--shadow:rgba(224,69,127,.3);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a1228;--bg2:#5a1c3f;--card:rgba(40,12,28,.7);--ink:#ffd6e7;--accent:#ff7fb0;--accent2:#ff5c98;--shadow:rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#3a1228;--bg2:#5a1c3f;--card:rgba(40,12,28,.7);--ink:#ffd6e7;--accent:#ff7fb0;--accent2:#ff5c98;--shadow:rgba(0,0,0,.4);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Quicksand',system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;overflow-x:hidden}
+h1,h2{font-family:'Dancing Script',cursive,serif;margin:0;font-weight:700}
+h1{font-size:clamp(2.4rem,9vw,4rem);line-height:1.1}
+h2{font-size:clamp(2rem,7vw,3rem)}
+.view{display:none;min-height:100vh;padding:24px 18px 70px;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;position:relative;z-index:1}
+.view.on{display:flex;animation:fade .7s ease}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card{background:var(--card);backdrop-filter:blur(8px);border-radius:28px;padding:28px 22px;box-shadow:0 12px 40px var(--shadow);width:min(92vw,440px)}
+input[type=password]{width:100%;font:inherit;font-size:1.6rem;letter-spacing:.5em;text-align:center;padding:12px;border-radius:16px;border:2px solid var(--accent);background:transparent;color:var(--ink);outline:none}
+.btn{font:inherit;font-weight:600;font-size:1.1rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border:0;border-radius:999px;padding:14px 28px;cursor:pointer;box-shadow:0 6px 18px var(--shadow);transition:transform .2s;width:100%}
+.btn:hover{transform:scale(1.04)}
+.btn.ghost{background:var(--card);color:var(--ink);width:auto;padding:10px 20px;font-size:.95rem}
+.msg{min-height:1.4em;margin:10px 0 0;font-weight:600}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hearts span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.6}
+@keyframes rise{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+#music{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:10;display:none;gap:6px}
+#music.on{display:flex}
+#music button{border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;background:var(--card);cursor:pointer;box-shadow:0 4px 12px var(--shadow)}
+
+/* menu */
+#menu{--menu-bg:url("couple.jpg");background:linear-gradient(rgba(92,30,44,.82),rgba(92,30,44,.82)),var(--menu-bg) center/cover no-repeat,#5c1e2c;gap:14px}
+#menu h2{font-family:'Great Vibes','Dancing Script',cursive;font-weight:400;font-size:clamp(2.8rem,9vw,5.2rem);color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.sub{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:#fff;font-size:clamp(.95rem,2.6vw,1.2rem);margin:0 0 26px}
+.picks{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:clamp(24px,7vw,100px)}
+.pick{background:none;border:0;padding:8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(1.05rem,2.4vw,1.4rem);color:#f7b6c8;transition:transform .25s,filter .25s}
+.pick svg{width:clamp(120px,24vw,200px);height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35));animation:bob 4s ease-in-out infinite}
+.pick:nth-child(2) svg{animation-delay:-1.3s}
+.pick:nth-child(3) svg{animation-delay:-2.6s}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.pick:hover,.pick:focus-visible{transform:translateY(-8px) scale(1.06);filter:brightness(1.1);outline:none}
+.pick:active{transform:scale(.97)}
+
+/* tulips */
+.garden{display:flex;align-items:flex-end;justify-content:center;width:min(96vw,560px);height:300px;position:relative}
+.tulip{width:15%;margin:0 -1%;transform-origin:50% 100%;animation:grow 2s cubic-bezier(.2,.8,.2,1) both,sway 4s ease-in-out infinite;animation-delay:var(--d),calc(var(--d) + 2s)}
+@keyframes grow{from{transform:scaleY(0) scaleX(.4);opacity:0}to{transform:none;opacity:1}}
+@keyframes sway{50%{transform:rotate(3deg)}}
+.tulip .bloom{transform-origin:50px 92px;animation:open 1.4s ease-out both;animation-delay:calc(var(--d) + 1.4s)}
+@keyframes open{from{transform:scale(.3)}to{transform:scale(1)}}
+.petal{position:fixed;top:-30px;width:14px;height:18px;background:var(--accent);border-radius:70% 0 70% 0;opacity:.8;animation:fall linear infinite;pointer-events:none;z-index:2}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+/* letter */
+.env{position:relative;width:min(88vw,360px);height:230px;cursor:pointer}
+.env .back,.env .front{position:absolute;inset:0;border-radius:14px}
+.env .back{background:var(--accent)}
+.env .front{background:linear-gradient(135deg,var(--accent2),var(--accent));clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);z-index:3}
+.env .flap{position:absolute;left:0;right:0;top:0;height:115px;background:var(--accent2);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s;z-index:4}
+.env .paper{position:absolute;left:6%;right:6%;top:10px;height:200px;background:#fff;color:#7a2149;border-radius:10px;z-index:2;padding:16px;overflow:auto;text-align:left;transition:all .8s .4s;font-size:.95rem}
+.env.open .flap{transform:rotateX(180deg);z-index:1}
+.env.open .paper{top:-250px;height:430px;z-index:5;font-size:1.05rem;line-height:1.6}
+.env.open{margin-top:260px;margin-bottom:200px}
+.env .paper h3{font-family:'Dancing Script',cursive;font-size:1.7rem;margin:0 0 8px}
+video{width:100%;border-radius:18px;background:#000;max-height:60vh}
+.hint{font-size:.9rem;opacity:.8}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<div id="music"><button id="mbtn" title="Music on/off">🎵</button></div>
+<input type="file" id="mfile" accept="audio/*" hidden>
+<audio id="bgm" loop preload="auto"></audio>
+
+<!-- GATE -->
+<section class="view on" id="gate">
+  <h1>Happy 1st Monthsarry<br>Langlang 💗</h1>
+  <div class="card">
+    <p style="margin-top:0">Enter our monthsarry date to open your surprise 🌷</p>
+    <input type="password" id="pw" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="off">
+    <p class="msg" id="err"></p>
+    <button class="btn" id="go">Open 💌</button>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="view" id="menu">
+  <h2>Happy 1st Monthsary, My Langga</h2>
+
+  <div class="picks">
+
+    <button class="pick" data-go="flowers">
+      <svg viewBox="0 0 200 230" aria-hidden="true">
+        <defs>
+          <g id="rose"><circle r="24" fill="#f9b2c4"/><path d="M-18 -4 Q0 -24 18 -4 Q0 6 -18 -4Z" fill="#f48aa5"/><path d="M-12 7 Q0 -7 12 7 Q0 17 -12 7Z" fill="#ee6f93"/><circle cy="-2" r="4" fill="#ffd9a0"/></g>
+        </defs>
+        <g stroke="#8fbf7a" stroke-width="2" fill="none"><path d="M100 120 L52 36"/><path d="M100 120 L78 24"/><path d="M100 120 L128 28"/><path d="M100 120 L152 44"/></g>
+        <g fill="#ffb3c6"><circle cx="52" cy="36" r="4"/><circle cx="78" cy="24" r="4"/><circle cx="128" cy="28" r="4"/><circle cx="152" cy="44" r="4"/></g>
+        <g fill="#a9d18e"><ellipse cx="46" cy="84" rx="9" ry="22" transform="rotate(-35 46 84)"/><ellipse cx="156" cy="84" rx="9" ry="22" transform="rotate(35 156 84)"/><ellipse cx="68" cy="58" rx="7" ry="18" transform="rotate(-15 68 58)"/><ellipse cx="136" cy="58" rx="7" ry="18" transform="rotate(15 136 58)"/></g>
+        <path d="M38 112 L162 112 L114 222 L86 222Z" fill="#ece6fa" stroke="#cfc4ee" stroke-width="2"/>
+        <path d="M70 112 L96 222 M130 112 L104 222 M100 112 V222" stroke="#cfc4ee" stroke-width="1.5" fill="none"/>
+        <use href="#rose" transform="translate(68 92) scale(.95)"/>
+        <use href="#rose" transform="translate(116 84) scale(1.05)"/>
+        <use href="#rose" transform="translate(94 118) scale(.85)"/>
+        <circle cx="52" cy="62" r="13" fill="#ff8f8f"/><circle cx="148" cy="64" r="13" fill="#ff8f8f"/>
+        <path d="M100 160 L80 150 L82 172Z M100 160 L120 150 L118 172Z" fill="#b79ae0"/><circle cx="100" cy="160" r="5" fill="#9e7fd1"/>
+      </svg>
+      <span>Flowers for you</span>
+    </button>
+
+    <button class="pick" data-go="letter">
+      <svg viewBox="0 0 200 170" aria-hidden="true">
+        <g transform="rotate(-16 80 70)">
+          <rect x="25" y="25" width="120" height="80" rx="4" fill="#e3c9b4"/>
+          <path d="M25 25 L85 70 L145 25Z" fill="#d6b89f"/>
+        </g>
+        <g transform="rotate(6 100 110)">
+          <rect x="50" y="70" width="120" height="80" rx="4" fill="#f9eee8" stroke="#e5cbbd" stroke-width="2"/>
+          <path d="M50 70 L110 118 L170 70" fill="none" stroke="#e5cbbd" stroke-width="2"/>
+          <path d="M150 142 C130 128 133 114 144 114 C148 114 150 117 150 120 C150 117 152 114 156 114 C167 114 170 128 150 142Z" fill="#d9536b"/>
+        </g>
+      </svg>
+      <span>My love letter</span>
+    </button>
+
+    <button class="pick" data-go="song">
+      <svg viewBox="0 0 160 200" aria-hidden="true">
+        <defs>
+          <pattern id="plaid" width="12" height="12" patternUnits="userSpaceOnUse">
+            <rect width="12" height="12" fill="#e4cdb0"/><path d="M0 6H12M6 0V12" stroke="#c9a77f" stroke-width="3" opacity=".7"/>
+          </pattern>
+        </defs>
+        <g fill="url(#plaid)" stroke="#bf9b72" stroke-width="1.5">
+          <ellipse cx="56" cy="168" rx="18" ry="15"/><ellipse cx="104" cy="168" rx="18" ry="15"/>
+          <ellipse cx="80" cy="128" rx="38" ry="42"/>
+          <ellipse cx="40" cy="120" rx="12" ry="26" transform="rotate(25 40 120)"/>
+          <ellipse cx="120" cy="120" rx="12" ry="26" transform="rotate(-25 120 120)"/>
+          <circle cx="45" cy="28" r="16"/><circle cx="115" cy="28" r="16"/>
+          <circle cx="80" cy="55" r="38"/>
+        </g>
+        <circle cx="45" cy="28" r="8" fill="#e9b9a0"/><circle cx="115" cy="28" r="8" fill="#e9b9a0"/>
+        <circle cx="56" cy="172" r="7" fill="#a9783f"/><circle cx="104" cy="172" r="7" fill="#a9783f"/>
+        <ellipse cx="80" cy="68" rx="16" ry="12" fill="#f7ead9"/>
+        <circle cx="66" cy="50" r="3.5" fill="#2a1a14"/><circle cx="94" cy="50" r="3.5" fill="#2a1a14"/>
+        <ellipse cx="80" cy="62" rx="5" ry="3.5" fill="#2a1a14"/>
+        <path d="M80 65 V70 M80 70 Q75 75 71 70 M80 70 Q85 75 89 70" stroke="#2a1a14" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="58" cy="64" r="6" fill="#f4a8a0" opacity=".6"/><circle cx="102" cy="64" r="6" fill="#f4a8a0" opacity=".6"/>
+        <path d="M80 94 L62 85 L62 103Z M80 94 L98 85 L98 103Z" fill="#d7263d"/><circle cx="80" cy="94" r="5" fill="#b81d31"/>
+      </svg>
+      <span>A song for you</span>
+    </button>
+
+  </div>
+</section>
+
+<!-- FLOWERS -->
+<section class="view" id="flowers">
+  <h2>Flowers for my palangga</h2>
+  <div class="garden" id="garden"></div>
+  <button class="btn ghost" data-go="menu">← Back</button>
+</section>
+
+<!-- LETTER -->
+<section class="view" id="letter">
+  <h2>Love letter</h2>
+  <div class="env" id="env">
+    <div class="back"></div>
+    <div class="paper" id="paper"></div>
+    <div class="front"></div>
+    <div class="flap"></div>
+  </div>
+  <p class="hint">Tap the envelope to open 💌</p>
+  <button class="btn ghost" data-go="menu">← Back</button>
+</section>
+
+<!-- SONG -->
+<section class="view" id="song">
+  <h2>Favourite song</h2>
+  <div class="card">
+    <video id="vid" controls playsinline></video>
+  </div>
+  <button class="btn ghost" data-go="menu">← Back</button>
+</section>
+
+<script>
+// ====== EDIT THESE ======
+const PASSWORD = "091526";
+const MUSIC_SRC = "Palangga - Shael (Official Lyric Video).mp3";
+const VIDEO_SRC = "fav song lang.mp4";
+const LETTER_TITLE = "My dearest Langlang,";
+const LETTER_TEXT = `Happy 1st monthsarry, my Langga!
+
+Langga, No matter how far apart we are my love for you grows strong everyday. I may not see you everyday but I love you every single day.
+Even though we don't feel each other. I will choose you as my Eternity.
+
+Thank you for being you. I love you more than you do my wifeyy. 💗
+
+Forever yours,
+Welboygwapo123`;
+// ========================
+
+const $ = s => document.querySelector(s);
+const views = document.querySelectorAll('.view');
+function show(id){
+  views.forEach(v => v.classList.toggle('on', v.id === id));
+  window.scrollTo(0,0);
+  if(id==='flowers') plant();
+  if(id!=='song') $('#vid').pause();
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if(b) show(b.dataset.go); });
+
+// floating hearts
+const hs = $('#hearts');
+for(let i=0;i<16;i++){
+  const s = document.createElement('span');
+  s.textContent = ['💗','💕','🌸','💖'][i%4];
+  s.style.left = Math.random()*100+'%';
+  s.style.fontSize = (14+Math.random()*18)+'px';
+  s.style.animationDuration = (9+Math.random()*10)+'s';
+  s.style.animationDelay = (-Math.random()*15)+'s';
+  hs.appendChild(s);
+}
+
+// music (one audio element lives outside all pages, so it never stops between pages)
+const bgm = $('#bgm'), mbtn = $('#mbtn');
+if(MUSIC_SRC) bgm.src = MUSIC_SRC;
+function setIcon(){ mbtn.textContent = (!bgm.paused) ? '🔊' : '🔇'; }
+mbtn.onclick = () => { if(!bgm.src){ $('#mfile').click(); return; } bgm.paused ? bgm.play().catch(()=>{}) : bgm.pause(); setIcon(); };
+$('#mfile').onchange = e => { const f = e.target.files[0]; if(!f) return; bgm.src = URL.createObjectURL(f); bgm.play().catch(()=>{}); setIcon(); };
+bgm.onplay = bgm.onpause = setIcon;
+
+// password
+function tryPw(){
+  if($('#pw').value === PASSWORD){
+    $('#music').classList.add('on');
+    if(bgm.src) bgm.play().catch(()=>{});
+    setIcon();
+    show('menu');
+  } else {
+    const c = $('#gate .card');
+    c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake');
+    $('#err').textContent = 'Try again, langlang💗';
+    $('#pw').value = '';
+  }
+}
+$('#go').onclick = tryPw;
+$('#pw').addEventListener('keydown', e => { if(e.key==='Enter') tryPw(); });
+
+// tulips
+const shades = [['#ff8fb8','#ff5c98'],['#ffb3cf','#ff7fb0'],['#ff6fa5','#e0457f'],['#ffc2d9','#ff8fb8'],['#ff9ec4','#f2619a'],['#ffd0e2','#ff9ec4'],['#ff7fb0','#d93a76']];
+function tulip(c,h,d){
+  return `<svg class="tulip" viewBox="0 0 100 200" style="--d:${d}s;height:${h}%;width:15%">
+  <path d="M50 200 C47 160 53 130 50 92" stroke="#4fae6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M50 190 C20 170 18 140 28 120 C40 140 48 160 50 190Z" fill="#5fc27a"/>
+  <path d="M50 195 C80 175 84 148 74 128 C62 146 52 166 50 195Z" fill="#4fae6a"/>
+  <g class="bloom">
+    <path d="M50 92 C30 90 24 60 30 38 C40 50 46 70 50 92Z" fill="${c[1]}"/>
+    <path d="M50 92 C70 90 76 60 70 38 C60 50 54 70 50 92Z" fill="${c[1]}"/>
+    <path d="M50 94 C36 94 30 64 38 34 C46 46 54 46 62 34 C70 64 64 94 50 94Z" fill="${c[0]}"/>
+  </g></svg>`;
+}
+let planted = false;
+function plant(){
+  const g = $('#garden');
+  g.innerHTML = '';
+  const hs = [62,80,70,92,72,82,60];
+  const order = [3,2,4,1,5,0,6];
+  g.innerHTML = order.map((i,n)=>tulip(shades[i],hs[i],0.3+n*0.35)).join('');
+  if(!planted){
+    planted = true;
+    for(let i=0;i<14;i++){
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.left = Math.random()*100+'vw';
+      p.style.animationDuration = (6+Math.random()*7)+'s';
+      p.style.animationDelay = (-Math.random()*10)+'s';
+      document.body.appendChild(p);
+    }
+  }
+  document.querySelectorAll('.petal').forEach(p => p.style.display = '');
+}
+const _show = show;
+show = function(id){ _show(id); document.querySelectorAll('.petal').forEach(p => p.style.display = id==='flowers' ? '' : 'none'); };
+
+// letter
+$('#paper').innerHTML = `<h3>${LETTER_TITLE}</h3>` + LETTER_TEXT.split('\n').map(l => l ? `<div>${l}</div>` : '<br>').join('');
+$('#env').onclick = () => $('#env').classList.toggle('open');
+
+// song
+const vid = $('#vid');
+if(VIDEO_SRC) vid.src = VIDEO_SRC;
+
+let resume = false;
+vid.onplay = () => { resume = !bgm.paused; bgm.pause(); };
+vid.onpause = vid.onended = () => { if(resume){ bgm.play().catch(()=>{}); resume = false; } };
+</script>
+</body>
+</html>
